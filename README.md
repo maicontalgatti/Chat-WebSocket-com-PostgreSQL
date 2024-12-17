@@ -2,53 +2,53 @@
 Este projeto é uma aplicação de chat em tempo real utilizando WebSocket para comunicação bidirecional e PostgreSQL para armazenar as mensagens trocadas entre os usuários.
 
 
-Tecnologias Utilizadas
+## Tecnologias Utilizadas
 Node.js (para o servidor e WebSocket)
 Express (framework para o servidor HTTP)
 ws (biblioteca WebSocket)
 PostgreSQL (banco de dados para armazenar mensagens)
 HTML/JavaScript (para o frontend do cliente)
-Requisitos
+## Requisitos
 Antes de iniciar o projeto, é necessário ter as seguintes ferramentas instaladas:
 
-Node.js e npm: Link para download
-PostgreSQL: Link para download
-Configuração do Banco de Dados
+Node.js e npm
+PostgreSQL
+## Configuração do Banco de Dados
 Crie o banco de dados no PostgreSQL:
 
 Conecte-se ao PostgreSQL e execute os seguintes comandos SQL:
 
 sql
-Copiar código
-CREATE DATABASE chatdb;
-Crie a tabela messages dentro do banco chatdb:
+    
+    Copiar código
+    CREATE DATABASE chatdb;
+    Crie a tabela messages dentro do banco chatdb:
 
-sql
-Copiar código
-CREATE TABLE messages (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    message TEXT NOT NULL,
-    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+sql 
+
+    CREATE TABLE messages (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        message TEXT NOT NULL,
+        timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
 Verifique a conexão com o banco de dados:
 
-Certifique-se de que o banco de dados está acessível e em funcionamento no IP 192.168.3.229 e na porta 5432 (ajuste conforme necessário).
+Certifique-se de que o banco de dados está acessível e em funcionamento no IP (seu ip)9 e na porta 5432 (ajuste conforme necessário).
 
-Instalação e Execução do Servidor
+## Instalação e Execução do Servidor
 Clone o repositório ou baixe os arquivos do projeto:
 
 bash
-Copiar código
-git clone https://github.com/seu-usuario/chat-websocket.git
-cd chat-websocket
+ 
+    git clone https://github.com/seu-usuario/chat-websocket.git
+    cd chat-websocket
 Instale as dependências:
 
 No diretório do projeto, execute o comando:
-
-bash
-Copiar código
-npm install
+ 
+    npm install
+    
 Configure o arquivo server.js:
 
 Certifique-se de que as configurações de PostgreSQL no arquivo server.js estão corretas (host, usuário, senha, etc.).
@@ -57,12 +57,10 @@ Inicie o servidor:
 
 Execute o servidor Node.js com o comando:
 
-bash
-Copiar código
-node server.js
-O servidor WebSocket estará rodando em ws://192.168.3.221:1000.
+    node server.js
+O servidor WebSocket estará rodando em ws://(seu ip):1000.
 
-Executando o Cliente (Frontend)
+## Executando o Cliente (Frontend)
 Abra o arquivo index.html:
 
 Você pode abrir o arquivo diretamente no navegador para testar a aplicação.
@@ -70,27 +68,25 @@ Você pode abrir o arquivo diretamente no navegador para testar a aplicação.
 Servir o arquivo HTML (opcional):
 
 Caso prefira, você pode usar um servidor HTTP simples para servir o arquivo HTML. Para isso, instale o http-server:
+ 
 
-bash
-Copiar código
-npm install -g http-server
-http-server . -p 8080
+    npm install -g http-server
+    http-server . -p 8080
 Agora, acesse a aplicação no navegador em http://localhost:8080.
 
-Como Testar o Chat
+## Como Testar o Chat
 Abra múltiplas abas ou janelas do navegador e acesse o frontend (arquivo index.html).
 Preencha o nome e envie mensagens.
 Verifique o funcionamento:
 As mensagens enviadas devem ser transmitidas em tempo real para todas as abas/janelas abertas.
 As mensagens serão armazenadas no banco de dados PostgreSQL na tabela messages.
-Estrutura do Projeto
-bash
-Copiar código
-chat-websocket/
-├── server.js               # Código do servidor Node.js com WebSocket
-├── index.html              # Frontend do chat (HTML)
-└── README.md               # Este arquivo
-Contribuindo
+## Estrutura do Projeto
+ 
+    chat-websocket/
+    ├── server.js               # Código do servidor Node.js com WebSocket
+    ├── index.html              # Frontend do chat (HTML)
+    └── README.md               # Este arquivo
+## Contribuindo
 Se você deseja contribuir para o projeto, siga as etapas abaixo:
 
 Faça um fork deste repositório.
