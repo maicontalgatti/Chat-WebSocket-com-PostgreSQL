@@ -1,0 +1,27 @@
+{
+  "name": "insights-chat",
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ionited/insights-chat.git"
+  },
+  "author": "Ion",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ionited/insights-chat/issues"
+  },
+  "homepage": "https://github.com/ionited/insights-chat#readme",
+  "dependencies": {
+    "@ionited/mesh": "^0.6.4",
+    "express": "^4.21.1",
+    "os": "^0.1.2",
+    "pg": "^8.13.1",
+    "ws": "^8.18.0"
+  },
+  "keywords": [],
+  "description": ""
+}

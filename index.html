@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insights Chat</title>
+</head>
+<body>
+  <div id="messages"></div>
+
+  <form id="form">
+    <div>
+      <input id="name" placeholder="Nome" required>
+    </div>
+
+    <div>
+      <textarea id="message" placeholder="Mensagem" required></textarea>
+    </div>
+    
+    <button>Enviar</button>
+  </form>
+
+  <script>
+    const
+      socket = new WebSocket('ws://192.168.3.221:1000/ws'),
+      form = document.getElementById('form'),
+      name = document.getElementById('name'),
+      message = document.getElementById('message'),
+      messages = document.getElementById('messages');
+
+    form.onsubmit = e => {
+      e.preventDefault();
+
+      socket.send(JSON.stringify({ name: name.value, message: message.value }));
+
+      message.value = '';
+    }
+
+    socket.addEventListener('message', e => {
+      try {
+        const data = JSON.parse(e.data); // Analisa o JSON recebido
+        const div = document.createElement('div');
+        div.innerHTML = data.serverMessage; // Acessa a mensagem do servidor
+        messages.appendChild(div);
+      } catch (error) {
+        console.error("Erro ao processar mensagem recebida:", error);
+      }
+    });
+  </script>
+</body>
+</html>
